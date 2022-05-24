@@ -152,11 +152,11 @@ int main(int argc, char **argv)
                     CUDA_CHECK("cuda_stage1()");
                     CUDA_CALL(cudaEventRecord(stage1T));
                     CUDA_CALL(cudaEventSynchronize(stage1T));
-                    openmp_stage2(global_image_average);
+                    cuda_stage2(global_image_average);
                     CUDA_CHECK("cuda_stage2()");
                     CUDA_CALL(cudaEventRecord(stage2T));
                     CUDA_CALL(cudaEventSynchronize(stage2T));
-                    openmp_stage3();
+                    cuda_stage3();
                     CUDA_CHECK("cuda_stage3()");
                     CUDA_CALL(cudaEventRecord(stage3T));
                     CUDA_CALL(cudaEventSynchronize(stage3T));
